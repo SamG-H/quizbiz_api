@@ -5,7 +5,11 @@ class QuizzesController < ApplicationController
   def index
     @quizzes = Quiz.all
 
-    render json: QuizSerializer.new(@quizzes)
+    options = {
+      include: [:questions]
+    }
+
+    render json: QuizSerializer.new(@quizzes, options)
   end
 
   # GET /quizzes/1
