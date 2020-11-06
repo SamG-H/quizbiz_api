@@ -6,7 +6,7 @@ class QuizzesController < ApplicationController
     @quizzes = Quiz.all
 
     options = {
-      include: [:questions]
+      include: [:questions, :answers]
     }
 
     render json: QuizSerializer.new(@quizzes, options)
